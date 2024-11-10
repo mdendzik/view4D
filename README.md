@@ -6,6 +6,7 @@ view=View4D(xarray_data_4D)
 to take a snaphot of widget state use view.win.snapshot()
 
 keyboard actions:
+
 a- autoscale color map range
 
 b- toggle a reference box
