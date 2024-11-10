@@ -5,7 +5,9 @@ view=View4D(xarray_data_4D)
 
 to take a snaphot of widget state use view.win.snapshot()
 
-keyboard actions:
+Panel in the top left corner controls data selection ploted in the rest of the panels. Assuming dataset is data(x,y,z,t), ROI controls x, y selection, and lineplots below cuts z and t.
+
+Keyboard actions:
 
 a- autoscale color map range
 
