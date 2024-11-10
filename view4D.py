@@ -12,6 +12,8 @@ from pyqtgraph.Qt import QtCore, QtGui
 import h5py
 import xarray as xr
 
+# Created by Maciej Dendzik 2024
+
 __all__ = ['GraphicsLayoutWidget', 'PlotWidget','View4D']
 
 KMLUT = {
@@ -961,7 +963,7 @@ class View4D:
             # updateself.tRegion()
         if event.key() == QtCore.Qt.Key_Left:
             # print("left")
-            pos=xRegionxz.getRegion()
+            pos=self.xRegionxz.getRegion()
             if event.modifiers() == QtCore.Qt.ShiftModifier:
                 pos_new=(pos[0],pos[1]-self.xs)
             elif event.modifiers() == QtCore.Qt.ControlModifier:
@@ -970,13 +972,13 @@ class View4D:
                 pos_new=(pos[0]-10*self.xs,pos[1]-10*self.xs)
             else:
                 pos_new=(pos[0]-self.xs,pos[1]-self.xs)
-            xRegionxz.setRegion(pos_new)
+            self.xRegionxz.setRegion(pos_new)
             # updateself.tRegion()
             self.win.request_draw()
             # print(pos)
         if event.key() == QtCore.Qt.Key_Right:
             # print("right")
-            pos=xRegionxz.getRegion()
+            pos=self.xRegionxz.getRegion()
             if event.modifiers() == QtCore.Qt.ShiftModifier:
                 pos_new=(pos[0],pos[1]+self.xs)
             elif event.modifiers() == QtCore.Qt.ControlModifier:
@@ -986,7 +988,7 @@ class View4D:
             else:
                 pos_new=(pos[0]+self.xs,pos[1]+self.xs)
             # pos_new=(pos[0]+self.zs,pos[1]+self.zs)
-            xRegionxz.setRegion(pos_new)
+            self.xRegionxz.setRegion(pos_new)
             # updateself.tRegion()
             self.win.request_draw()
         if event.key() == QtCore.Qt.Key_A:
@@ -1060,7 +1062,7 @@ class View4D:
             # print(pos)
         if event.key() == QtCore.Qt.Key_Up:
             # print("right")
-            pos=self.zRegionxz.getRegion()
+            pos=self.zRegionyz.getRegion()
             if event.modifiers() == QtCore.Qt.ShiftModifier:
                 pos_new=(pos[0],pos[1]+self.zs)
             elif event.modifiers() == QtCore.Qt.ControlModifier:
@@ -1069,7 +1071,7 @@ class View4D:
                 pos_new=(pos[0]+10*self.zs,pos[1]+10*self.zs)
             else:
                 pos_new=(pos[0]+self.zs,pos[1]+self.zs)
-            self.zRegionxz.setRegion(pos_new)
+            self.zRegionyz.setRegion(pos_new)
             self.win.request_draw()
             # updateself.tRegion()
         if event.key() == QtCore.Qt.Key_Left:
